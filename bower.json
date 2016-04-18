@@ -17,8 +17,8 @@
   "description": "A fontselect directive for AngularJS",
   "main": [
     "dist/libs/webfontloader.js",
-    "dist/angular-fontselect.js",
-    "dist/angular-fontselect.css"
+    "dist/angular-fontselect-material.js",
+    "dist/angular-fontselect-material.css"
   ],
   "keywords": [
     "fonts",

@@ -11,8 +11,10 @@ fontselectModule.directive('jdFont', [NAME_FONTSSERVICE, function(fontsService) 
     controller: ['$scope', '$rootScope', function($scope, $rootScope) {
       fontsService.load($scope.font);
 
-      $scope.onFontClick = function(font){
-        $rootScope.$emit('jdFontselect:jdFont:click', font);
+      $scope.onFontClick = function($event, font){
+        if($event.target.tagName === "LABEL") {
+          $rootScope.$emit('jdFontselect:jdFont:click', font);
+        }
       };
     }]
   };
