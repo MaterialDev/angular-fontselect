@@ -1164,8 +1164,12 @@
       templateUrl: 'font.html',
       restrict: 'E',
       replace: true,
-      controller: ['$scope', function($scope) {
+      controller: ['$scope', '$rootScope', function($scope, $rootScope) {
         fontsService.load($scope.font);
+
+        $scope.onFontClick = function(font){
+          $rootScope.$emit('jdFontselect:jdFont:click', font);
+        };
       }]
     };
   }]);
@@ -1748,6 +1752,7 @@
         onOpen: '&?',
         onClose: '&?',
         onChange: '&?',
+        onFontClick: '&?',
         idSuffix: '@?'
       },
       restrict: 'E',
@@ -2032,6 +2037,10 @@
           } catch (e) {
             $scope.reset();
           }
+        });
+
+        $rootScope.$on('jdFontselect:jdFont:click', function(event, font){
+          $scope.onFontClick({font: font});
         });
       }]
     };
@@ -2997,7 +3006,7 @@
 
 
     $templateCache.put('font.html',
-      "<label class=jdfs-fontlist-font ng-class=\"{'jdfs-active jdfs-highlight': current.font.name == font.name}\" for=jdfs-{{id}}-font-{{font.key}} style=\"font-family: {{font.stack}}\"><input type=radio ng-model=current.font ng-value=font name=jdfs-{{id}}-font id=\"jdfs-{{id}}-font-{{font.key}}\"> {{font.name}}</label>"
+      "<label class=jdfs-fontlist-font ng-class=\"{'jdfs-active jdfs-highlight': current.font.name == font.name}\" for=jdfs-{{id}}-font-{{font.key}} style=\"font-family: {{font.stack}}\" ng-click=onFontClick(current.font)><input type=radio ng-model=current.font ng-value=font name=jdfs-{{id}}-font id=\"jdfs-{{id}}-font-{{font.key}}\"> {{font.name}}</label>"
     );
 
 

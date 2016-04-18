@@ -8,8 +8,12 @@ fontselectModule.directive('jdFont', [NAME_FONTSSERVICE, function(fontsService) 
     templateUrl: 'font.html',
     restrict: 'E',
     replace: true,
-    controller: ['$scope', function($scope) {
+    controller: ['$scope', '$rootScope', function($scope, $rootScope) {
       fontsService.load($scope.font);
+
+      $scope.onFontClick = function(font){
+        $rootScope.$emit('jdFontselect:jdFont:click', font);
+      };
     }]
   };
 }]);

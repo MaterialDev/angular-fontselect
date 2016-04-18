@@ -2,7 +2,8 @@
 		class="jdfs-fontlist-font"
 		ng-class="{'jdfs-active jdfs-highlight': current.font.name == font.name}"
 		for="jdfs-{{id}}-font-{{font.key}}"
-		style="font-family: {{font.stack}};">
+		style="font-family: {{font.stack}};"
+		ng-click="onFontClick(current.font)">
 		<input
 			type="radio"
 			ng-model="current.font"

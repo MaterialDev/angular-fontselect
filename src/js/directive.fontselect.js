@@ -15,6 +15,7 @@ fontselectModule.directive('jdFontselect', [NAME_FONTSSERVICE, function(fontsSer
       onOpen: '&?',
       onClose: '&?',
       onChange: '&?',
+      onFontClick: '&?',
       idSuffix: '@?'
     },
     restrict: 'E',
@@ -299,6 +300,10 @@ fontselectModule.directive('jdFontselect', [NAME_FONTSSERVICE, function(fontsSer
         } catch (e) {
           $scope.reset();
         }
+      });
+
+      $rootScope.$on('jdFontselect:jdFont:click', function(event, font){
+        $scope.onFontClick({font: font});
       });
     }]
   };
