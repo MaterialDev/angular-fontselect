@@ -1168,7 +1168,7 @@
         fontsService.load($scope.font);
 
         $scope.onFontClick = function($event, font){
-          if($event.target.tagName === "LABEL") {
+          if($event.target.tagName === 'LABEL') {
             $rootScope.$emit('jdFontselect:jdFont:click', font);
           }
         };
@@ -3012,7 +3012,7 @@
 
 
     $templateCache.put('font.html',
-      "<label class=jdfs-fontlist-font ng-class=\"{'jdfs-active jdfs-highlight': current.font.name == font.name}\" for=jdfs-{{id}}-font-{{font.key}} style=\"font-family: {{font.stack}}\" ng-click=\"onFontClick($event, current.font)\"><input type=radio ng-model=current.font ng-value=font name=jdfs-{{id}}-font id=\"jdfs-{{id}}-font-{{font.key}}\"> {{font.name}}</label>"
+      "<label class=jdfs-fontlist-font ng-class=\"{'jdfs-active jdfs-highlight': current.font.name == font.name}\" for=jdfs-{{id}}-font-{{font.key}} style=\"font-family: {{font.stack}}\" ng-click=\"onFontClick($event, font)\"><input type=radio ng-model=current.font ng-value=font name=jdfs-{{id}}-font id=\"jdfs-{{id}}-font-{{font.key}}\"> {{font.name}}</label>"
     );
 
 
