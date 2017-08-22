@@ -1,14 +1,15 @@
 {
   "name": "angular-fontselect-material",
-  "version": "0.13.3",
+  "version": "0.13.4",
   "description": "A fontselect directive for AngularJS",
   "homepage": "https://github.com/Jimdo/angular-fontselect",
   "author": "Jimdo GmbH",
+  "main": "dist/angular-fontselect.js",
   "maintainers": [
     "Hannes Diercks <hannes.diercks@jimdo.com>",
     "Lasse Diercks <lasse@jimdo.com>",
-    "Joscha Feth <joscha@feth.com>",
     "Xiphe <hannes.diercks@jimdo.com>",
+    "Joscha Feth <joscha@feth.com>",
     "Karsten Buckstegge <k.buckstegge@gmail.com>"
   ],
   "contributors": [
@@ -27,7 +28,7 @@
   ],
   "scripts": {
     "test": "grunt test",
-    "postinstall": "bower install && grunt build"
+    "setup": "bower install && grunt build"
   },
   "repository": {
     "type": "git",
@@ -35,9 +36,13 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "angular": "1.4.1",
     "bower": "^1.7.7",
     "grunt": "^0.4.5",
     "grunt-angular-toolbox": "^2.1.2",
     "grunt-cli": "^0.1.13"
+  },
+  "peerDependencies": {
+    "angular": "^1.2.25 <= 1.4.1"
   }
 }

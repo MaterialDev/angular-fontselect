@@ -12,7 +12,7 @@ env:
   - secure: "NwL+WhB/vBbs3eTXrtp+18apGigtrVZEnP03+9cJeBHFfY27Rmy2J4VT6TilnYDYBqOiE+BDIszOFJo/cSx0buXd4ca5jlPcojNvipYiOXEp0RP+jLBUBXYPo7ocgwWI7xk2mIbdqgS1EXr0Fyr9nmFArriYThvSiXRsLN5Zs6s="
 
 install:
-  - npm install
+  - npm install && npm run setup
 
 before_script:
   - export DISPLAY=:99.0
@@ -23,3 +23,6 @@ script:
 
 after_success:
   - grunt coveralls
+  - if [ "$TRAVIS_BRANCH" == 'master' ] && [ "$TRAVIS_PULL_REQUEST" == false ]; then
+      echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish;
+    fi
