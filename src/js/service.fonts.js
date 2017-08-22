@@ -615,11 +615,11 @@ FontsService.prototype = {
         key: self.jdFontselectConfig.googleApiKey
       }
     }).then(function(response) {
-      var amount = response.items.length;
+      var amount = response.data.items.length;
       var ready = amount - 1;
       var fonts = [];
 
-      angular.forEach(response.items, function(font, i) {
+      angular.forEach(response.data.items, function(font, i) {
         var category = self._getGoogleFontCat(font.family);
 
         fonts.push(self.add({
