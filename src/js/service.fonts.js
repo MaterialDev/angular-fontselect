@@ -614,7 +614,7 @@ FontsService.prototype = {
         sort: 'popularity',
         key: self.jdFontselectConfig.googleApiKey
       }
-    }).success(function(response) {
+    }).then(function(response) {
       var amount = response.items.length;
       var ready = amount - 1;
       var fonts = [];
@@ -637,7 +637,7 @@ FontsService.prototype = {
           d.resolve(fonts);
         }
       });
-    }).error(d.reject);
+    }).catch(d.reject);
   },
 
   _getGoogleFontCat: function(font) {
