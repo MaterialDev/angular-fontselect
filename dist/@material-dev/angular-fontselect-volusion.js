@@ -1,5 +1,5 @@
 /*!
- * @material-dev/angular-fontselect-volusion v0.13.10
+ * @material-dev/angular-fontselect-volusion v0.13.11
  * https://github.com/Jimdo/angular-fontselect
  *
  * A fontselect directive for AngularJS
